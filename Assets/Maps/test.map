@@ -1,0 +1,40 @@
+type octile
+height 35
+width 64
+map
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+T........T........T............................................T
+T..TTTT..T..TTTTTTT..TTTTTTTTTTTTTTTTTTTTTTTTTTTT..TTTTTTTTTT..T
+T.....T.....T........T.....T.....T..............T.....T........T
+T.....T.....T........T.....T.....T..............T.....T........T
+TTTT..T..TTTT..TTTTTTT..T..T..T..T..TTTTTTTTTT..TTTT..T..TTTTTTT
+T.....T..T.....T........T.....T..T........T..T..T.....T.....T..T
+T..TTTT..T..TTTT..TTTTTTTTTTTTTTTTTTT..TTTTTTT..TTTTTTTTTT..TTTT
+T..T.....T..T..T..T..............T..T..T.....T........T..T.....T
+T..T.....T..T..T..T..............T..T..T.....T........T..T.....T
+T..TTTTTTT..TTTT..T..TTTTTTTTTT..T..T..T..T..TTTT..T..TTTTTTT..T
+T........T..T.....T.....T.....T..T..T.....T.....T..T...........T
+T..TTTT..T..T..TTTTTTT..TTTT..T..TTTTTTTTTTTTT..T..TTTTTTTTTTTTT
+T..T.....T..T........T.....T..T..............T..T...........T..T
+T..T..TTTT..TTTTTTTTTTTTT..T..TTTTTTTTTTTTT..T..TTTT..TTTT..TTTT
+T..T..T....................T..............T..T.....T..T..T.....T
+T..T..T....................T..............T..T.....T..T..T.....T
+T..T..T..TTTTTTTTTTTTTTTTTTTTTT..TTTTTTT..TT.TTTT..T..T..TTTT..T
+T..T........T.....T....................T..T.....T..T.....T.....T
+T..TTTTTTT..T..T..T..TTTT..TTTTTTT..TTTTTTT..T..T..TTTT..T..TTTT
+T..T........T..T..T.....T........T..T........T..T..T..T..T.....T
+T..T........T..T..T.....T........T..T........T..T..T..T..T.....T
+T..T..TTTTTTT..T..TTTT..T..TTTTTTTTTT..TTTTTTTTTT..T..T..TTTT..T
+T..T..T........T.....T..T.....T.....T...........T..T.....T..T..T
+T..T..T..TTTTTTTTTTTTT..TTTT..T..TTTTTTTTTTTTT..T..TTTTTTTTTT..T
+T..T.......................T..T.....T..T..T.....T........T..T..T
+T..T.......................T..T.....T..T..T.....T........T..T..T
+T..T..TTTTTTTTTTTTTTTTTTTTTTTTTTTT..TTTTTTT..TTTTTTTTTT..TTTT..T
+T..T........T.....T..T........T..T..T..T..............T..T.....T
+TTTTTTTTTT..T..T..T..T..TTTT..TTTT..TTTT..TTTT..TTTTTTT..T..TTTT
+T.....T.....T..T..T..T..T..T........T..T..T.....T.....T..T.....T
+T..TTTT..TTTT..T..T..T..TTTTTTTTTTTTTTTT..T..TTTT..T..T..TTTTTTT
+T...........T..T..T..T.................T..T..T.....T..T........T
+TTTTTTTTTT..TTTT..T..TTTTTTTTTTTTTTTT..T..T..TTTTTTTTTTTTTTTT..T
+.....................T.................T.....T..............T...
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
