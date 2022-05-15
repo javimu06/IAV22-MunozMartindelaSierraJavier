@@ -27,8 +27,11 @@ Al ejecutar el punto de partida vemos dos entidades, el **Player** y el **Minota
 ## Proyecto Final
 Mi proyecto final consistirá en expandir el punto de Partida en diferentes aspectos explicados a continuación:
 Expandir la gamificación del jugador, dándole objetivos dentro del tablero de juego, como buscar objetos concretos (llaves, salidas) o la capacidad de recoger objetos que mejoren sus capacidades (como la visión, la velocidad...).
+
 Expandir el comportamiento del minotauro a través de una máquina de estados. Ya no solo seguirá al jugador o merodeará por el mapa, si no que dependiendo del estado del juego tentrá que realizar una serie de tareas concretas. Para la elaboración de esta máquina de estados utilizaré las extensiones indicadas por el profesor para la resolución de la Práctica 3.
+
 Elaborar una generación de mapas pseudo aleatoria, teniendo siempre unas zonas concretas como la entrada/salida de la mazmorra, pero elaborando el resto de caminos de manera procedimental.
+
 Además de un rework estético general, para ganar una apariencia mucho más elaborada con animaciones, sombras y un entorno menos prototipado.
 Dependiendo del tiempo que tarde en elaborar las expansiones que quiero realizar replantearé migrar el proyecto a Realidad Virtual. De tal manera que el jugador pueda jugar en primera persona con unas gafas de realidad virtual, desplazándose por el entorno e interaccionando de esta manera.
 
