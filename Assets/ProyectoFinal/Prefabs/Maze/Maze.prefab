@@ -52,4 +52,5 @@ MonoBehaviour:
   size:
     x: 20
     z: 20
-  generationStepDelay: 0.01
+  generationStepDelay: 0.001
+  surfaces: []

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private void BeginGame()
     {
         mazeInstance = Instantiate(mazePrefab) as Maze;
-        StartCoroutine(mazeInstance.Generate());
+        mazeInstance.Generate();
     }
 
     private void RestartGame()

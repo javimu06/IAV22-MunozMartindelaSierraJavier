@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Maze : MonoBehaviour
 {
@@ -13,24 +14,29 @@ public class Maze : MonoBehaviour
 
     private MazeCell[,] cells;
 
+    public List<GameObject> surfaces;
 
     public MazeCell GetCell(IntVector2 coordinates)
     {
         return cells[coordinates.x, coordinates.z];
     }
 
-    public IEnumerator Generate()
+    public void Generate()
     {
+
         WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
         cells = new MazeCell[size.x, size.z];
         List<MazeCell> activeCells = new List<MazeCell>();
         DoFirstGenerationStep(activeCells);
         while (activeCells.Count > 0)
         {
-            yield return delay;
             DoNextGenerationStep(activeCells);
         }
 
+        for (int i = 0; i < surfaces.Count; i++)
+        {
+            surfaces[i].GetComponent<NavMeshSurface>().BuildNavMesh();
+        }
     }
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)
@@ -99,6 +105,9 @@ public class Maze : MonoBehaviour
         newCell.transform.parent = transform;
         newCell.transform.localPosition =
             new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
+
+        surfaces.Add(newCell.transform.GetChild(0).gameObject);
+
         return newCell;
     }
 
