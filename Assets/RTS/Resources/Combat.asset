@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: Combat
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Attack
+    behaviorDescription: "Si la unidad tiene un objetivo de movimiento, se desplaza
+      hasta all\xED.\nSi no tiene objetivo de movimiento pero est\xE1 bajo amenaza
+      de unidades enemigas o torretas, ataca a la unidad enemiga m\xE1s cercana.\nSi
+      no tiene objetivo de movimiento ni est\xE1 bajo amenaza, pero tiene cerca una
+      instalaci\xF3n enemiga, se pone a atacarla."
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(-464.8785,588.32666)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(0.621459961,111.32666)","Comment":"No
+        deber\u00eda recibir nunca fracaso de los hijos, porque para eso est\u00e1
+        el Idle."},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"","Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0,100)","Comment":"O
+        se desplaza hasta el objetivo de movimiento.\nO lleva los recursos a la instalaci\u00f3n
+        de procesamiento m\u00e1s cercana.\nO se pone a extraer recursos."},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-429.9845,107.231934)","Comment":"Si
+        la unidad tiene un objetivo de movimiento, se desplaza hasta all\u00ed."},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"es.ucm.fdi.iav.rts.HasMoveTarget","NodeData":{"Offset":"(-787.347,130)"},"ID":4,"Name":"Has
+        Move Target","Instant":true,"SharedTransform_moveTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}},{"Type":"es.ucm.fdi.iav.rts.SetTargetOffset","NodeData":{"Offset":"(-650,130)"},"ID":5,"Name":"Set
+        Target Offset","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Int32_maxPositions":10,"Single_radius":12},{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(-489.1835,129.999878)"},"ID":6,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"run_forward"},{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-334.387268,127.693054)"},"ID":7,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,100)"},"ID":8,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":3,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]},{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(-182.041016,130)"},"ID":9,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"idle"},{"Type":"es.ucm.fdi.iav.rts.ResetCombat","NodeData":{"Offset":"(-20,130)"},"ID":10,"Name":"Reset
+        Combat","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-17.22586,134.4733)","Comment":"\nSi
+        no tiene objetivo de movimiento pero est\u00e1 bajo amenaza de unidades enemigas
+        o torretas, ataca a la unidad enemiga m\u00e1s cercana."},"ID":11,"Name":"Sequence","Instant":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"es.ucm.fdi.iav.rts.IsMenaced","NodeData":{"Offset":"(-194.786682,99.2602539)"},"ID":12,"Name":"Is
+        Menaced","Instant":true},{"Type":"es.ucm.fdi.iav.rts.HasAttackTarget","NodeData":{"Offset":"(9.387741,100)"},"ID":13,"Name":"Has
+        Attack Target","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedFloat_attackTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0},"Boolean_lineOfSight":true,"Single_minSightDistance":5,"Single_sightHeight":1,"Single_minRetargetDistance":0.5},{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(267.647949,98.62012)","Comment":"Invertimos
+        el fracaso que viene de abajo, que significar\u00e1 que ha dejado de existir
+        el objetivo de ataque (ha muerto)."},"ID":14,"Name":"Inverter","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(0,110)","Comment":"Sigue
+        disparando hasta que el objetivo no est\u00e9 vivo."},"ID":15,"Name":"Until
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(0,100)"},"ID":16,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"es.ucm.fdi.iav.rts.IsAlive","NodeData":{"Offset":"(-743.617065,106.808533)"},"ID":17,"Name":"Is
+        Alive","Instant":true,"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}},{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(-590,110)"},"ID":18,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"run_forward"},{"Type":"es.ucm.fdi.iav.rts.SetTargetOffset","NodeData":{"Offset":"(-430,110)"},"ID":19,"Name":"Set
+        Target Offset","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Int32_maxPositions":10,"Single_radius":12},{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-304.5172,111.998535)"},"ID":20,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,100)"},"ID":21,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":1,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]},{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(-140,110)"},"ID":22,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"idle"},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(60,108.085114)","Comment":"Espera
+        el tiempo de ataque de la unidad (tambi\u00e9n para evitar que haya disparos
+        cont\u00ednuos)"},"ID":23,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0}},{"Type":"es.ucm.fdi.iav.rts.FireProjectile","NodeData":{"Offset":"(244.468079,106.808533)"},"ID":24,"Name":"Fire
+        Projectile","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"GameObjectprojectilePrefab":0,"Single_fireHeight":1}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1190.01563,107.231934)","Comment":"Si
+        no tiene objetivo de movimiento ni est\u00e1 bajo amenaza, pero tiene cerca
+        una instalaci\u00f3n enemiga, se pone a atacarla."},"ID":25,"Name":"Sequence","Instant":true,"AbortTypeabortType":"LowerPriority","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-301.04834,127.231934)"},"ID":26,"Name":"Inverter","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.IsMenaced","NodeData":{"Offset":"(-2.43945313,112.041016)"},"ID":27,"Name":"Is
+        Menaced","Instant":true}]},{"Type":"es.ucm.fdi.iav.rts.HasAttackTarget","NodeData":{"Offset":"(-170,130)"},"ID":28,"Name":"Has
+        Attack Target","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedFloat_attackTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0},"Boolean_lineOfSight":true,"Single_minSightDistance":5,"Single_sightHeight":1,"Single_minRetargetDistance":0.5},{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(11.7575274,130)"},"ID":29,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"run_forward"},{"Type":"es.ucm.fdi.iav.rts.SetTargetOffset","NodeData":{"Offset":"(181.961548,130)"},"ID":30,"Name":"Set
+        Target Offset","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Int32_maxPositions":10,"Single_radius":12},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(319.330719,130.000153)"},"ID":31,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(7.55103,110.612236)"},"ID":32,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":2,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]},{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(482.3698,130)"},"ID":33,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"idle"},{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(631.9617,130)","Comment":"Invertimos
+        el fracaso que viene de abajo, que significar\u00e1 que ha dejado de existir
+        el objetivo de ataque (ha muerto)."},"ID":34,"Name":"Inverter","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(-1.91625977,110)","Comment":"Sigue
+        disparando hasta que el objetivo no est\u00e9 vivo."},"ID":35,"Name":"Until
+        Failure","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-1.91625977,100)"},"ID":36,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"es.ucm.fdi.iav.rts.IsAlive","NodeData":{"Offset":"(-111.91626,110)"},"ID":37,"Name":"Is
+        Alive","Instant":true,"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(58.08374,110)","Comment":"Wait
+        a moment to prevent rapid fire"},"ID":38,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0}},{"Type":"es.ucm.fdi.iav.rts.FireProjectile","NodeData":{"Offset":"(238.08374,110)"},"ID":39,"Name":"Fire
+        Projectile","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"GameObjectprojectilePrefab":1,"Single_fireHeight":1}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(2261.85352,109.75531)"},"ID":40,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"es.ucm.fdi.iav.rts.PlaySpecifiedAnimation","NodeData":{"Offset":"(-28.7751465,129.796143)"},"ID":41,"Name":"Play
+        Specified Animation","Instant":true,"StringanimationName":"idle"},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(134.285889,132.653076)"},"ID":42,"Name":"Idle","Instant":true}]}]}]},"Variables":[{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"Target
+        Offset","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 100000, guid: 237f78c344db2b642be0e205142393a2, type: 3}
+        - {fileID: 100000, guid: 237f78c344db2b642be0e205142393a2, type: 3}
+        byteData: 
+        byteDataArray: 
+      Version: 1.6.8

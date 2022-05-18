@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: Defense
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Behavior
+    behaviorDescription: "Ataca a la unidad enemiga m\xE1s cercana, aunque no haya
+      l\xEDnea de visi\xF3n."
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(0,0)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(4.87854,121.67334)","Comment":"No
+        deber\u00eda recibir nunca fracaso de los hijos, porque para eso est\u00e1
+        el Idle."},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"","Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0,110)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-60,150)","Comment":"Ataca
+        a la unidad enemiga m\u00e1s cercana, sin necesidad de que haya l\u00ednea
+        de visi\u00f3n."},"ID":3,"Name":"","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"es.ucm.fdi.iav.rts.HasAttackTarget","NodeData":{"Offset":"(-120.5,121)","Comment":"RTS
+        Controller se deja vac\u00edo porque las torretas no tienen controlador."},"ID":4,"Name":"Has
+        Attack Target","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":""},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"SharedFloat_attackTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0},"Boolean_lineOfSight":false,"Single_minSightDistance":5,"Single_sightHeight":1,"Single_minRetargetDistance":0.5},{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(90.5,128)","Comment":"Invertimos
+        el fracaso que viene de abajo, que significar\u00e1 que ha dejado de existir
+        el objetivo de ataque (ha muerto)."},"ID":5,"Name":"Inverter","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilFailure","NodeData":{"Offset":"(0,110)","Comment":"Sigue
+        disparando hasta que el objetivo no est\u00e9 vivo."},"ID":6,"Name":"","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(3.5,108)"},"ID":7,"Name":"","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"es.ucm.fdi.iav.rts.IsAlive","NodeData":{"Offset":"(-180,110)"},"ID":8,"Name":"Is
+        Alive","Instant":true,"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(0,110)","Comment":"Wait
+        a moment to prevent rapid fire"},"ID":9,"Name":"","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0}},{"Type":"es.ucm.fdi.iav.rts.FireProjectile","NodeData":{"Offset":"(170,110)"},"ID":10,"Name":"Fire
+        Projectile","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":""},"SharedTransform_attackTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},"GameObjectprojectilePrefab":0,"Single_fireHeight":1}]}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(360.7141,160)"},"ID":11,"Name":"Idle","Instant":true}]}]},"Variables":[{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"AttackDamage","IsShared":true,"Int32mValue":0},{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"AttackTime","IsShared":true,"SinglemValue":0}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects:
+        - {fileID: 100000, guid: 237f78c344db2b642be0e205142393a2, type: 3}
+        byteData: 
+        byteDataArray: 
+      Version: 1.6.8

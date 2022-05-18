@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b23f08d2ae4cba14087c1ed36193d82b, type: 3}
+  m_Name: Extraction
+  m_EditorClassIdentifier: 
+  mBehaviorSource:
+    behaviorName: Extraction
+    behaviorDescription: "Si la unidad tiene un objetivo de movimiento, se desplaza
+      hasta all\xED.\nSi no tiene objetivo de movimiento pero tiene carga, lleva
+      los recursos a la instalaci\xF3n de procesamiento m\xE1s cercana.\nSi no tiene
+      objetivo de movimiento ni carga, pero tiene cerca una zona con recursos, se
+      pone a extraerlos.\n"
+    mTaskData:
+      types: []
+      parentIndex: 
+      startIndex: 
+      variableStartIndex: 
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(-120.396774,-30)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(4.48175049,111.67334)","Comment":"No
+        deber\u00eda recibir nunca fracaso de los hijos, porque para eso est\u00e1
+        el Idle."},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":"","Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0,110)","Comment":"O
+        se desplaza hasta el objetivo de movimiento.\nO lleva los recursos a la instalaci\u00f3n
+        de procesamiento m\u00e1s cercana.\nO se pone a extraer recursos."},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-427.106445,108.32515)","Comment":"Si
+        la unidad tiene un objetivo de movimiento, se desplaza hasta all\u00ed."},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"es.ucm.fdi.iav.rts.HasMoveTarget","NodeData":{"Offset":"(-402.652954,120)"},"ID":4,"Name":"Has
+        Move Target","Instant":true,"SharedTransform_moveTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"}},{"Type":"es.ucm.fdi.iav.rts.SetTargetOffset","NodeData":{"Offset":"(-258.662018,121.02047)"},"ID":5,"Name":"Set
+        Target Offset","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Int32_maxPositions":10,"Single_radius":10},{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-132.384033,123)"},"ID":6,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,110)"},"ID":7,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":3,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]},{"Type":"es.ucm.fdi.iav.rts.ResetExtraction","NodeData":{"Offset":"(0,120)"},"ID":8,"Name":"Reset
+        Extraction","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"SharedLimitedAccess_extractableResources":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ExtractableResources","IsShared":true},"SharedProcessingFacility_processingFacility":{"Type":"es.ucm.fdi.iav.rts.SharedProcessingFacility","Name":"ProcessingFacility","IsShared":true},"SharedLimitedAccess_processingAccess":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ProcessingAccess","IsShared":true}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-0.408163071,119.387749)","Comment":"Si
+        la unidad no tiene objetivo de movimiento pero tiene carga, lleva los recursos
+        a la instalaci\u00f3n de procesamiento m\u00e1s cercana."},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"es.ucm.fdi.iav.rts.HasResources","NodeData":{"Offset":"(-290.703674,109.848221)"},"ID":10,"Name":"Has
+        Resources","Instant":true},{"Type":"es.ucm.fdi.iav.rts.HasProcessingTarget","NodeData":{"Offset":"(-140,110)"},"ID":11,"Name":"Has
+        Processing Target","Instant":true,"SharedTransform_processingTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedProcessingFacility_processingFacility":{"Type":"es.ucm.fdi.iav.rts.SharedProcessingFacility","Name":"ProcessingFacility","IsShared":true},"SharedLimitedAccess_processingAccess":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ProcessingAccess","IsShared":true}},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(39.0015259,114.387573)"},"ID":12,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(2.59658241,95.2948)","Comment":"Si
+        la instalaci\u00f3n de procesamiento m\u00e1s cercana est\u00e1 ocupada,
+        se mover\u00e1 la unidad a un lugar cercano."},"ID":13,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"es.ucm.fdi.iav.rts.IsOccupiedByOther","NodeData":{"Offset":"(-350,110)"},"ID":14,"Name":"Is
+        Occupied By Other","Instant":true,"SharedLimitedAccess_limitedAccess":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ProcessingAccess","IsShared":true}},{"Type":"es.ucm.fdi.iav.rts.SetTargetOffset","NodeData":{"Offset":"(-190,110)"},"ID":15,"Name":"Set
+        Target Offset","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Int32_maxPositions":4,"Single_radius":17},{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-60,110)"},"ID":16,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,100)"},"ID":17,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":3,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]}]}]},{"Type":"es.ucm.fdi.iav.rts.LimitedAccessGuard","NodeData":{"Offset":"(385.5564,106.757393)"},"ID":18,"Name":"Limited
+        Access Guard","Instant":true,"SharedLimitedAccess_limitedAccess":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ProcessingAccess","IsShared":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(3.334015,103.480728)","Comment":"Cuando
+        la instalaci\u00f3n de procesamiento m\u00e1s cercana ya no est\u00e1 ocupada,
+        se mover\u00e1 la unidad all\u00ed y descargar\u00e1 sus recursos."},"ID":19,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-230,120)"},"ID":20,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,110)","Comment":"Cuando
+        se va a descargar en la instalaci\u00f3n de procesamiento, s\u00ed es necesario
+        rotar hasta orientar la unidad de extracci\u00f3n como es debido."},"ID":21,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"","Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":3,"Boolean_rotateToTarget":true,"Single_acceptableMaxRotationError":5}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(-4.14909363,118.277008)","Comment":"Tarda
+        un rato en descargar los recursos"},"ID":22,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":3},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0}},{"Type":"es.ucm.fdi.iav.rts.UnloadResources","NodeData":{"Offset":"(189.5363,118.481064)"},"ID":23,"Name":"Unload
+        Resources","Instant":true,"SharedProcessingFacility_processingFacility":{"Type":"es.ucm.fdi.iav.rts.SharedProcessingFacility","Name":"ProcessingFacility","IsShared":true}}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1310,109.387756)","Comment":"Si
+        la unidad no tiene objetivo de movimiento ni carga, pero tiene cerca una
+        zona con recursos, se pone a extraerlos."},"ID":24,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-464.144775,119)"},"ID":25,"Name":"Inverter","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.HasResources","NodeData":{"Offset":"(4,110)"},"ID":26,"Name":"Has
+        Resources","Instant":true}]},{"Type":"es.ucm.fdi.iav.rts.HasExtractionTarget","NodeData":{"Offset":"(-310,120)"},"ID":27,"Name":"Has
+        Extraction Target","Instant":true,"SharedTransform_extractionTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedLimitedAccess_extractableResources":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ExtractableResources","IsShared":true},"Single_maxExtractionDistance":30,"Boolean_lineOfSight":true,"Single_minSightDistance":5,"Single_sightHeight":0.2},{"Type":"BehaviorDesigner.Runtime.Tasks.ReturnSuccess","NodeData":{"Offset":"(-155.55603,116.349182)"},"ID":28,"Name":"Return
+        Success","Instant":true,"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(1.66607666,110)","Comment":"Si
+        la zona con recursos m\u00e1s cercana est\u00e1 ocupada, se mover\u00e1 la
+        unidad a un lugar cercano."},"ID":29,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"es.ucm.fdi.iav.rts.IsOccupiedByOther","NodeData":{"Offset":"(-200,110)"},"ID":30,"Name":"Is
+        Occupied By Other","Instant":true,"SharedLimitedAccess_limitedAccess":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ExtractableResources","IsShared":true}},{"Type":"es.ucm.fdi.iav.rts.SetTargetOffset","NodeData":{"Offset":"(-54.29705,108.7755)"},"ID":31,"Name":"Set
+        Target Offset","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Int32_maxPositions":5,"Single_radius":12},{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(78.12695,110)"},"ID":32,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,110)"},"ID":33,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":3,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]}]}]},{"Type":"es.ucm.fdi.iav.rts.LimitedAccessGuard","NodeData":{"Offset":"(197.052338,124.829918)"},"ID":34,"Name":"Limited
+        Access Guard","Instant":true,"SharedLimitedAccess_limitedAccess":{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ExtractableResources","IsShared":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-0.5386028,112.573723)","Comment":"Cuando
+        la zona con recursos m\u00e1s cercana ya no est\u00e1 ocupada, se mover\u00e1
+        la unidad all\u00ed y descargar\u00e1 sus recursos."},"ID":35,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Self","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.UntilSuccess","NodeData":{"Offset":"(-80,110)"},"ID":36,"Name":"Until
+        Success","Instant":true,"Children":[{"Type":"es.ucm.fdi.iav.rts.Navigate","NodeData":{"Offset":"(0,100)"},"ID":37,"Name":"Navigate","Instant":true,"SharedRTSController_rtsController":{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},"SharedTransform_navigationTarget":{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},"SharedVector3_targetOffset":{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"","Vector3mValue":"(0,0,0)"},"Single_acceptableMinVelocity":1,"Single_acceptableMaxBootTime":3,"Boolean_rotateToTarget":false,"Single_acceptableMaxRotationError":5}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Wait","NodeData":{"Offset":"(117.945618,114.387756)","Comment":"Tarda
+        un rato en extraer los recursos"},"ID":38,"Name":"Wait","Instant":true,"SharedFloatwaitTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":5},"SharedBoolrandomWait":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":"","BooleanmValue":false},"SharedFloatrandomWaitMin":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0},"SharedFloatrandomWaitMax":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":"","SinglemValue":0}},{"Type":"es.ucm.fdi.iav.rts.ExtractResources","NodeData":{"Offset":"(310.963684,112.998871)"},"ID":39,"Name":"Extract
+        Resources","Instant":true,"Int32_amount":1000}]}]}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Idle","NodeData":{"Offset":"(1719.46948,110)"},"ID":40,"Name":"Idle","Instant":true}]}]},"Variables":[{"Type":"es.ucm.fdi.iav.rts.SharedRTSController","Name":"RTSController","IsShared":true},{"Type":"BehaviorDesigner.Runtime.SharedTransform","Name":"Target","IsShared":true,"Tooltip":"Objetivo
+        de la unidad, sea de movimiento, extracci\u00f3n o procesamiento"},{"Type":"BehaviorDesigner.Runtime.SharedVector3","Name":"TargetOffset","IsShared":true,"Vector3mValue":"(0,0,0)"},{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ExtractableResources","IsShared":true},{"Type":"es.ucm.fdi.iav.rts.SharedProcessingFacility","Name":"ProcessingFacility","IsShared":true},{"Type":"es.ucm.fdi.iav.rts.SharedLimitedAccess","Name":"ProcessingAccess","IsShared":true}]}'
+      fieldSerializationData:
+        typeName: []
+        fieldNameHash: 
+        startIndex: 
+        dataPosition: 
+        unityObjects: []
+        byteData: 
+        byteDataArray: 
+      Version: 1.6.8
