@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
 
+    public Camera camera;
+
     void Start()
     {
         tiempoAtaqueActivo = tiempoEsperaAtaque / 2;

@@ -34,11 +34,7 @@ public class Maze : MonoBehaviour
             DoNextGenerationStep(activeCells);
         }
 
-        for (int i = 0; i < surfaces.Count; i++)
-        {
-            surfaces[i].GetComponent<NavMeshSurface>().BuildNavMesh();
-        }
-
+        //Quitar muro entrada
         MazeWall[] children = cells[0, 0].GetComponentsInChildren<MazeWall>();
         for (int i = 0; i < children.Length - 1; ++i)
         {
@@ -47,6 +43,22 @@ public class Maze : MonoBehaviour
                 children[i].gameObject.SetActive(false);
             }
         }
+
+        //Poner sala extra
+        MazeCell room = CreateCellNoList(new IntVector2(-1, 0));
+        CreateWall(room, null, MazeDirection.West);
+        CreateWall(room, null, MazeDirection.North);
+        CreateWall(room, null, MazeDirection.South);
+
+        surfaces.Add(room.transform.GetChild(0).gameObject);
+
+
+        for (int i = 0; i < surfaces.Count; i++)
+        {
+            surfaces[i].GetComponent<NavMeshSurface>().BuildNavMesh();
+        }
+
+
     }
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)
@@ -110,6 +122,21 @@ public class Maze : MonoBehaviour
     {
         MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
         cells[coordinates.x, coordinates.z] = newCell;
+        newCell.coordinates = coordinates;
+        newCell.name = "Maze Cell " + coordinates.x * scale + ", " + coordinates.z * scale;
+        newCell.transform.parent = transform;
+        newCell.transform.localPosition =
+            new Vector3(coordinates.x * scale - size.x * 0.5f + 0.5f, 0f, coordinates.z * scale - size.z * 0.5f + 0.5f);
+        newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
+
+        surfaces.Add(newCell.transform.GetChild(0).gameObject);
+
+        return newCell;
+    }
+
+    private MazeCell CreateCellNoList(IntVector2 coordinates)
+    {
+        MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
         newCell.coordinates = coordinates;
         newCell.name = "Maze Cell " + coordinates.x * scale + ", " + coordinates.z * scale;
         newCell.transform.parent = transform;
