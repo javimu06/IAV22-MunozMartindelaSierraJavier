@@ -8,6 +8,7 @@ public class Maze : MonoBehaviour
     public MazeCell cellPrefab;
     public MazePassage passagePrefab;
     public MazeWall wallPrefab;
+    public int scale;
 
     public IntVector2 size;
     public float generationStepDelay;
@@ -36,6 +37,15 @@ public class Maze : MonoBehaviour
         for (int i = 0; i < surfaces.Count; i++)
         {
             surfaces[i].GetComponent<NavMeshSurface>().BuildNavMesh();
+        }
+
+        MazeWall[] children = cells[0, 0].GetComponentsInChildren<MazeWall>();
+        for (int i = 0; i < children.Length - 1; ++i)
+        {
+            if (children[i].gameObject.GetComponent<MazeWall>().direction == MazeDirection.West)
+            {
+                children[i].gameObject.SetActive(false);
+            }
         }
     }
 
@@ -80,19 +90,19 @@ public class Maze : MonoBehaviour
     private void CreatePassage(MazeCell cell, MazeCell otherCell, MazeDirection direction)
     {
         MazePassage passage = Instantiate(passagePrefab) as MazePassage;
-        passage.Initialize(cell, otherCell, direction);
+        passage.Initialize(cell, otherCell, direction, scale);
         passage = Instantiate(passagePrefab) as MazePassage;
-        passage.Initialize(otherCell, cell, direction.GetOpposite());
+        passage.Initialize(otherCell, cell, direction.GetOpposite(), scale);
     }
 
     private void CreateWall(MazeCell cell, MazeCell otherCell, MazeDirection direction)
     {
         MazeWall wall = Instantiate(wallPrefab) as MazeWall;
-        wall.Initialize(cell, otherCell, direction);
+        wall.Initialize(cell, otherCell, direction, scale);
         if (otherCell != null)
         {
             wall = Instantiate(wallPrefab) as MazeWall;
-            wall.Initialize(otherCell, cell, direction.GetOpposite());
+            wall.Initialize(otherCell, cell, direction.GetOpposite(), scale);
         }
     }
 
@@ -101,10 +111,11 @@ public class Maze : MonoBehaviour
         MazeCell newCell = Instantiate(cellPrefab) as MazeCell;
         cells[coordinates.x, coordinates.z] = newCell;
         newCell.coordinates = coordinates;
-        newCell.name = "Maze Cell " + coordinates.x + ", " + coordinates.z;
+        newCell.name = "Maze Cell " + coordinates.x * scale + ", " + coordinates.z * scale;
         newCell.transform.parent = transform;
         newCell.transform.localPosition =
-            new Vector3(coordinates.x - size.x * 0.5f + 0.5f, 0f, coordinates.z - size.z * 0.5f + 0.5f);
+            new Vector3(coordinates.x * scale - size.x * 0.5f + 0.5f, 0f, coordinates.z * scale - size.z * 0.5f + 0.5f);
+        newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
 
         surfaces.Add(newCell.transform.GetChild(0).gameObject);
 

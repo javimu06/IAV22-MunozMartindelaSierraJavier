@@ -8,7 +8,7 @@ public abstract class MazeCellEdge : MonoBehaviour
 	public MazeCell cell, otherCell;
 	public MazeDirection direction;
 
-	public void Initialize(MazeCell cell, MazeCell otherCell, MazeDirection direction)
+	public void Initialize(MazeCell cell, MazeCell otherCell, MazeDirection direction, int scale)
 	{
 		this.cell = cell;
 		this.otherCell = otherCell;
@@ -17,5 +17,6 @@ public abstract class MazeCellEdge : MonoBehaviour
 		transform.parent = cell.transform;
 		transform.localPosition = Vector3.zero;
 		transform.localRotation = direction.ToRotation();
+		transform.localScale = new Vector3(scale * transform.localScale.x, scale * transform.localScale.y, scale * transform.localScale.z);
 	}
 }
