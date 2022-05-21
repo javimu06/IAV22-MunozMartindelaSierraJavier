@@ -174,21 +174,21 @@ public class BehaviorSelection : MonoBehaviour
         switch (selectionType)
         {
             case BehaviorSelectionType.MoveTowards:
-                marker.transform.position = new Vector3(20, 1, -20);
+                //marker.transform.position = new Vector3(20, 1, -20);
                 marker.SetActive(true);
-                mainBot.transform.position = new Vector3(-20, 1, -20);
-                mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
+                //mainBot.transform.position = new Vector3(-20, 1, -20);
+                //mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.RotateTowards:
-                marker.transform.position = new Vector3(20, 1, 10);
+                //marker.transform.position = new Vector3(20, 1, 10);
                 marker.SetActive(true);
-                mainBot.transform.position = new Vector3(0, 1, -20);
-                mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
+                //mainBot.transform.position = new Vector3(0, 1, -20);
+                //mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Seek:
-                marker.transform.position = new Vector3(20, 1, 20);
+               // marker.transform.position = new Vector3(20, 1, 20);
                 marker.SetActive(true);
                 if (markerAnimation != null)
                 {
@@ -196,12 +196,12 @@ public class BehaviorSelection : MonoBehaviour
                     markerAnimation["MarkerSeek"].speed = 1;
                     markerAnimation.Play("MarkerSeek");
                 }
-                mainBot.transform.position = new Vector3(-20, 1, -20);
-                mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
+                //mainBot.transform.position = new Vector3(-20, 1, -20);
+                //mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Flee:
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 marker.SetActive(true);
                 if (markerAnimation != null)
                 {
@@ -209,12 +209,12 @@ public class BehaviorSelection : MonoBehaviour
                     markerAnimation["MarkerFlee"].speed = 1;
                     markerAnimation.Play("MarkerFlee");
                 }
-                mainBot.transform.position = new Vector3(10, 1, 18);
-                mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
+                //mainBot.transform.position = new Vector3(10, 1, 18);
+                //mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Pursue:
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 marker.SetActive(true);
                 if (markerAnimation != null)
                 {
@@ -222,12 +222,12 @@ public class BehaviorSelection : MonoBehaviour
                     markerAnimation["MarkerPersue"].speed = 1;
                     markerAnimation.Play("MarkerPersue");
                 }
-                mainBot.transform.position = new Vector3(-20, 1, 0);
+                //mainBot.transform.position = new Vector3(-20, 1, 0);
                 mainBot.transform.eulerAngles = new Vector3(0, 90, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Evade:
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 marker.SetActive(true);
                 if (markerAnimation != null)
                 {
@@ -235,12 +235,12 @@ public class BehaviorSelection : MonoBehaviour
                     markerAnimation["MarkerEvade"].speed = 1;
                     markerAnimation.Play("MarkerEvade");
                 }
-                mainBot.transform.position = new Vector3(0, 1, 18);
+                //mainBot.transform.position = new Vector3(0, 1, 18);
                 mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Follow:
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 marker.SetActive(true);
                 if (markerAnimation != null)
                 {
@@ -248,7 +248,7 @@ public class BehaviorSelection : MonoBehaviour
                     markerAnimation["MarkerFollow"].speed = 1;
                     markerAnimation.Play("MarkerFollow");
                 }
-                mainBot.transform.position = new Vector3(20, 1, 15);
+                //mainBot.transform.position = new Vector3(20, 1, 15);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
@@ -257,43 +257,43 @@ public class BehaviorSelection : MonoBehaviour
                 {
                     waypoints[i].SetActive(true);
                 }
-                mainBot.transform.position = new Vector3(-20, 1, 20);
+                //mainBot.transform.position = new Vector3(-20, 1, 20);
                 mainBot.transform.eulerAngles = new Vector3(0, 180, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Cover:
-                mainBot.transform.position = new Vector3(-5, 1, -10);
+                //mainBot.transform.position = new Vector3(-5, 1, -10);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Wander:
-                mainBot.transform.position = new Vector3(-20, 1, -20);
+                //mainBot.transform.position = new Vector3(-20, 1, -20);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Search:
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 marker.SetActive(true);
-                mainBot.transform.position = new Vector3(-20, 1, -20);
+                //mainBot.transform.position = new Vector3(-20, 1, -20);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.WithinDistance:
                 marker.SetActive(true);
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 if (markerAnimation != null)
                 {
                     markerAnimation["MarkerPersue"].time = 0;
                     markerAnimation["MarkerPersue"].speed = 1;
                     markerAnimation.Play("MarkerPersue");
                 }
-                mainBot.transform.position = new Vector3(-15, 1, 2);
+                //mainBot.transform.position = new Vector3(-15, 1, 2);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.CanSeeObject:
                 marker.SetActive(true);
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 if (markerAnimation != null)
                 {
                     markerAnimation["MarkerPersue"].time = 0;
@@ -301,25 +301,25 @@ public class BehaviorSelection : MonoBehaviour
                     markerAnimation.Play("MarkerPersue");
                     markerAnimation.enabled = true;
                 }
-                mainBot.transform.position = new Vector3(-15, 1, -10);
+                //mainBot.transform.position = new Vector3(-15, 1, -10);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.CanHearObject:
                 marker.SetActive(true);
-                marker.transform.position = new Vector3(20, 1, 20);
+                //marker.transform.position = new Vector3(20, 1, 20);
                 if (markerAnimation != null)
                 {
                     markerAnimation["MarkerPersue"].time = 0;
                     markerAnimation["MarkerPersue"].speed = 1;
                     markerAnimation.Play("MarkerPersue");
                 }
-                mainBot.transform.position = new Vector3(-15, 1, -10);
+                //mainBot.transform.position = new Vector3(-15, 1, -10);
                 mainBot.transform.eulerAngles = new Vector3(0, 0, 0);
                 mainBot.SetActive(true);
                 break;
             case BehaviorSelectionType.Flock:
-                Camera.main.transform.position = new Vector3(0, 90, -150);
+                //Camera.main.transform.position = new Vector3(0, 90, -150);
                 for (int i = 0; i < flockGroup.transform.childCount; ++i)
                 {
                     flockGroup.transform.GetChild(i).gameObject.SetActive(true);
@@ -330,16 +330,16 @@ public class BehaviorSelection : MonoBehaviour
                 {
                     waypointsA[i].SetActive(true);
                 }
-                mainBot.transform.position = new Vector3(0, 1, -130);
+                //mainBot.transform.position = new Vector3(0, 1, -130);
                 mainBot.SetActive(true);
-                Camera.main.transform.position = new Vector3(0, 90, -150);
+                //Camera.main.transform.position = new Vector3(0, 90, -150);
                 for (int i = 0; i < followGroup.transform.childCount; ++i)
                 {
                     followGroup.transform.GetChild(i).gameObject.SetActive(true);
                 }
                 break;
             case BehaviorSelectionType.Queue:
-                marker.transform.position = new Vector3(45, 1, 0);
+                //marker.transform.position = new Vector3(45, 1, 0);
                 for (int i = 0; i < queueGroup.transform.childCount; ++i)
                 {
                     queueGroup.transform.GetChild(i).gameObject.SetActive(true);
@@ -362,24 +362,24 @@ public class BehaviorSelection : MonoBehaviour
             markerAnimation.Stop();
         marker.SetActive(false);
         mainBot.SetActive(false);
-        Camera.main.transform.position = new Vector3(0, 90, 0);
+        //Camera.main.transform.position = new Vector3(0, 90, 0);
         for (int i = 0; i < flockGroup.transform.childCount; ++i)
         {
             flockGroup.transform.GetChild(i).gameObject.SetActive(false);
-            flockGroup.transform.GetChild(i).transform.position = flockGroupPosition[i];
-            flockGroup.transform.GetChild(i).transform.rotation = flockGroupRotation[i];
+            //flockGroup.transform.GetChild(i).transform.position = flockGroupPosition[i];
+            //flockGroup.transform.GetChild(i).transform.rotation = flockGroupRotation[i];
         }
         for (int i = 0; i < followGroup.transform.childCount; ++i)
         {
             followGroup.transform.GetChild(i).gameObject.SetActive(false);
-            followGroup.transform.GetChild(i).transform.position = followGroupPosition[i];
-            followGroup.transform.GetChild(i).transform.rotation = followGroupRotation[i];
+            //followGroup.transform.GetChild(i).transform.position = followGroupPosition[i];
+            //followGroup.transform.GetChild(i).transform.rotation = followGroupRotation[i];
         }
         for (int i = 0; i < queueGroup.transform.childCount; ++i)
         {
             queueGroup.transform.GetChild(i).gameObject.SetActive(false);
-            queueGroup.transform.GetChild(i).transform.position = queueGroupPosition[i];
-            queueGroup.transform.GetChild(i).transform.rotation = queueGroupRotation[i];
+            //queueGroup.transform.GetChild(i).transform.position = queueGroupPosition[i];
+            //queueGroup.transform.GetChild(i).transform.rotation = queueGroupRotation[i];
         }
         for (int i = 0; i < waypoints.Length; ++i)
         {
