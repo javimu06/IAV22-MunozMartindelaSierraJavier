@@ -45,7 +45,8 @@ public class GameManager : MonoBehaviour
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate(); 
 
-        Player.transform.position = new Vector3((-2 * mazePrefab.scale) / 2 - mazePrefab.size.x * 0.5f + 0.5f, 0f, (0 * mazePrefab.scale) / 2 - mazePrefab.size.z * 0.5f + 0.5f);
+        Player.transform.position = new Vector3(-1 * mazePrefab.scale, 0f, 0f);
+        Minotauro.transform.position = new Vector3((mazeInstance.size.x-1) * mazePrefab.scale, 0f, (mazeInstance.size.z - 1) * mazePrefab.scale);
     }
 
     private void RestartGame()

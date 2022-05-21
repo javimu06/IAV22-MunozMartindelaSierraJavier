@@ -128,8 +128,8 @@ public class Maze : MonoBehaviour
         newCell.coordinates = coordinates;
         newCell.name = "Maze Cell " + coordinates.x * scale + ", " + coordinates.z * scale;
         newCell.transform.parent = transform;
-        newCell.transform.localPosition =
-            new Vector3(coordinates.x * scale - size.x * 0.5f + 0.5f, 0f, coordinates.z * scale - size.z * 0.5f + 0.5f);
+        newCell.transform.position =
+            new Vector3(coordinates.x * scale, 0f, coordinates.z * scale);
         newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
 
         surfaces.Add(newCell.transform.GetChild(0).gameObject);
@@ -157,8 +157,8 @@ public class Maze : MonoBehaviour
         newCell.coordinates = coordinates;
         newCell.name = "Maze Cell " + coordinates.x * scale + ", " + coordinates.z * scale;
         newCell.transform.parent = transform;
-        newCell.transform.localPosition =
-            new Vector3(coordinates.x * scale - size.x * 0.5f + 0.5f, 0f, coordinates.z * scale - size.z * 0.5f + 0.5f);
+        newCell.transform.position =
+            new Vector3(coordinates.x * scale, 0f, coordinates.z * scale);
         newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
 
         surfaces.Add(newCell.transform.GetChild(0).gameObject);
