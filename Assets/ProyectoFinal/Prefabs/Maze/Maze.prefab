@@ -49,9 +49,12 @@ MonoBehaviour:
     type: 3}
   wallPrefab: {fileID: 5715736254614298071, guid: 2114b90a81dafe54d9eda8c69e749f17,
     type: 3}
+  powerups: {fileID: 6419498923162188281, guid: 04d40d30acd098248aef3484f53e9500,
+    type: 3}
+  powerupDensity: 100
   scale: 50
   size:
     x: 4
     z: 4
-  generationStepDelay: 0.001
+  generationStepDelay: 0.0001
   surfaces: []

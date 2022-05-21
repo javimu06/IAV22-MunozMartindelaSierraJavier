@@ -122,7 +122,7 @@ NavMeshSettings:
     preserveTilesOutsideBounds: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b8dd84a32b65e0f41a6c7f12ff72f7e6, type: 2}
 --- !u!1 &346640
 GameObject:
   m_ObjectHideFlags: 0
@@ -722,8 +722,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95806605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1, z: -126.86}
-  m_LocalScale: {x: 0.13814, y: 0.13814, z: 0.13814}
+  m_LocalPosition: {x: -5, y: 1, z: -7.8}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1500,7 +1500,7 @@ Transform:
   - {fileID: 1358453175}
   - {fileID: 638693647}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &157415760
 GameObject:
@@ -2599,7 +2599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &476658879
 Transform:
   m_ObjectHideFlags: 0
@@ -2617,7 +2617,7 @@ Transform:
   - {fileID: 1144204295}
   - {fileID: 1446227435}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &507592135
 GameObject:
@@ -3160,7 +3160,7 @@ Transform:
   m_GameObject: {fileID: 605268259}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 90, z: 0.0000047286167}
-  m_LocalScale: {x: 40, y: 1, z: 40}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -3189,10 +3189,10 @@ MonoBehaviour:
   - {fileID: 86219747}
   waypointsA:
   - {fileID: 985012142}
-  - {fileID: 453012817}
   - {fileID: 1114766221}
+  - {fileID: 453012817}
   - {fileID: 1716371254}
-  descriptionGUISkin: {fileID: 11400000, guid: 36eff75c3a960b74bbd5999b301b60ca, type: 2}
+  descriptionGUISkin: {fileID: 11400000, guid: 921a8d349e61f0943b646194e4c6497c, type: 2}
 --- !u!114 &605268266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9121,7 +9121,7 @@ Transform:
   - {fileID: 86219748}
   - {fileID: 1716371255}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1881403408
 GameObject:

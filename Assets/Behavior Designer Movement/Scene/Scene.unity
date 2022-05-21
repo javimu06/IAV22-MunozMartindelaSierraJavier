@@ -722,7 +722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95806605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 1, z: -127.172516}
+  m_LocalPosition: {x: -5, y: 1, z: -7.8}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3174,10 +3174,10 @@ MonoBehaviour:
   - {fileID: 86219747}
   waypointsA:
   - {fileID: 985012142}
-  - {fileID: 453012817}
   - {fileID: 1114766221}
+  - {fileID: 453012817}
   - {fileID: 1716371254}
-  descriptionGUISkin: {fileID: 11400000, guid: 36eff75c3a960b74bbd5999b301b60ca, type: 2}
+  descriptionGUISkin: {fileID: 11400000, guid: 921a8d349e61f0943b646194e4c6497c, type: 2}
 --- !u!114 &605268266
 MonoBehaviour:
   m_ObjectHideFlags: 0

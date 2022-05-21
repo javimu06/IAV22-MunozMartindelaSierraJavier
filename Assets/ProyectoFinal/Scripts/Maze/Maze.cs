@@ -8,12 +8,16 @@ public class Maze : MonoBehaviour
     public MazeCell cellPrefab;
     public MazePassage passagePrefab;
     public MazeWall wallPrefab;
+    public GameObject powerups;
+    public int powerupDensity;
+
     public int scale;
 
     public IntVector2 size;
     public float generationStepDelay;
 
     private MazeCell[,] cells;
+    private MazeCell firstCell;
 
     public List<GameObject> surfaces;
 
@@ -35,8 +39,8 @@ public class Maze : MonoBehaviour
         }
 
         //Quitar muro entrada
-        MazeWall[] children = cells[0, 0].GetComponentsInChildren<MazeWall>();
-        for (int i = 0; i < children.Length - 1; ++i)
+        MazeWall[] children = firstCell.GetComponentsInChildren<MazeWall>();
+        for (int i = 0; i < children.Length; ++i)
         {
             if (children[i].gameObject.GetComponent<MazeWall>().direction == MazeDirection.West)
             {
@@ -57,7 +61,6 @@ public class Maze : MonoBehaviour
         {
             surfaces[i].GetComponent<NavMeshSurface>().BuildNavMesh();
         }
-
 
     }
 
@@ -130,6 +133,20 @@ public class Maze : MonoBehaviour
         newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
 
         surfaces.Add(newCell.transform.GetChild(0).gameObject);
+
+        if (newCell.name == "Maze Cell 0, 0")
+            firstCell = newCell;
+
+        //Generar Powerup
+        int poner = Random.Range(0, 1 / powerupDensity);
+        if (poner == 0)
+        {
+            int power = Random.Range(0, 4);
+            GameObject powerup = Instantiate(powerups.transform.GetChild(power).gameObject) as GameObject;
+            powerup.transform.position = newCell.transform.position;
+            powerup.transform.position += new Vector3(0, 10, 0);
+        }
+
 
         return newCell;
     }

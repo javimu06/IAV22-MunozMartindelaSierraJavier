@@ -19,13 +19,23 @@ public class BehaviourList : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        foreach (StuffBehaviour a in effectList)
+        if (effectList.Count > 0)
         {
-            if (a.itsOver())
+            List<StuffBehaviour> removeBehav = new List<StuffBehaviour>();
+            foreach (StuffBehaviour a in effectList)
             {
-                a.deActivateEffect();
+                if (a.itsOver())
+                {
+                    a.deActivateEffect();
+                    removeBehav.Add(a);
+                    //effectList.Remove(a);
+                }
+            }
+            foreach (StuffBehaviour a in removeBehav)
+            {
                 effectList.Remove(a);
             }
+            removeBehav.Clear();
         }
     }
 }

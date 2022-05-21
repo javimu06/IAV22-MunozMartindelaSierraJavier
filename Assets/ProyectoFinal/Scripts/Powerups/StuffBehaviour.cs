@@ -8,7 +8,6 @@ public class StuffBehaviour : MonoBehaviour
     public string effect;
     public int timeEffect;
 
-    public GameObject player;
     Timer timer;
 
     float playerSpeed;
@@ -26,13 +25,13 @@ public class StuffBehaviour : MonoBehaviour
 
         if (effect == "speedUp")
         {
-            playerSpeed = player.GetComponent<NavMeshAgent>().speed;
+            playerSpeed = GameManager.Instance.Player.GetComponent<NavMeshAgent>().speed;
             highSpeed = playerSpeed + playerSpeed * exponentSpeed;
             reducedSpeed = playerSpeed - playerSpeed / exponentSpeed;
         }
-        else if (effect == "zoomIn")
+        else if (effect == "zoomIn" || effect == "zoomOut")
         {
-            cameraZoom = player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset;
+            cameraZoom = GameManager.Instance.Player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset;
             highZoom = cameraZoom + cameraZoom * exponentSpeed;
             reducedZoom = cameraZoom - cameraZoom / exponentSpeed;
         }
@@ -45,12 +44,15 @@ public class StuffBehaviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Activar timer
-        timer.setTime(timeEffect);
-        //Activar efecto
-        activateEffect();
-        //Añadir a la lista de efectos del player
-        player.GetComponent<BehaviourList>().addElement(this);
+        if (other.GetComponent<Player>())
+        {
+            //Activar timer
+            timer.setTime(timeEffect);
+            //Activar efecto
+            activateEffect();
+            //Añadir a la lista de efectos del player
+            GameManager.Instance.Player.GetComponent<BehaviourList>().addElement(this);
+        }
     }
 
     void activateEffect()
@@ -58,16 +60,16 @@ public class StuffBehaviour : MonoBehaviour
         switch (effect)
         {
             case "speedUp":
-                player.GetComponent<NavMeshAgent>().speed = highSpeed;
+                GameManager.Instance.Player.GetComponent<NavMeshAgent>().speed = highSpeed;
                 break;
             case "speedDown":
-                player.GetComponent<NavMeshAgent>().speed = reducedSpeed;
-                break;
-            case "zoomIn":
-                player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = highZoom;
+                GameManager.Instance.Player.GetComponent<NavMeshAgent>().speed = reducedSpeed;
                 break;
             case "zoomOut":
-                player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = reducedZoom;
+                GameManager.Instance.Player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = highZoom;
+                break;
+            case "zoomIn":
+                GameManager.Instance.Player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = reducedZoom;
                 break;
             default:
                 break;
@@ -79,16 +81,16 @@ public class StuffBehaviour : MonoBehaviour
         switch (effect)
         {
             case "speedUp":
-                player.GetComponent<NavMeshAgent>().speed = playerSpeed;
+                GameManager.Instance.Player.GetComponent<NavMeshAgent>().speed = playerSpeed;
                 break;
             case "speedDown":
-                player.GetComponent<NavMeshAgent>().speed = playerSpeed;
+                GameManager.Instance.Player.GetComponent<NavMeshAgent>().speed = playerSpeed;
                 break;
             case "zoomIn":
-                player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = cameraZoom;
+                GameManager.Instance.Player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = cameraZoom;
                 break;
             case "zoomOut":
-                player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = cameraZoom;
+                GameManager.Instance.Player.GetComponent<Player>().camera.GetComponent<FollowClick>().offset = cameraZoom;
                 break;
             default:
                 break;
