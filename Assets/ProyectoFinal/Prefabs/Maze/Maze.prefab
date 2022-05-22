@@ -43,17 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae017a5b063aba468405a6f9f64f1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cellPrefab: {fileID: -1271244775471031455, guid: b4df5ba58d2b6ac4f8baafbd27c543d7,
+  cellPrefab: {fileID: -1271244775471031455, guid: bca760b80b65f324fafa79e817130ce7,
     type: 3}
   passagePrefab: {fileID: 6674588770614527251, guid: d8958a9fc39e9fa45b902f9a1d4566e0,
     type: 3}
-  wallPrefab: {fileID: 5715736254614298071, guid: 2114b90a81dafe54d9eda8c69e749f17,
+  wallPrefab: {fileID: 5715736254614298071, guid: 7c2caa6a9c90f4e4d90bdd7f97a3ebcf,
     type: 3}
   powerups: {fileID: 6419498923162188281, guid: 04d40d30acd098248aef3484f53e9500,
     type: 3}
   powerupDensity: 10
   key: {fileID: 4437556933618297880, guid: 78b52fba32456454aa18904a7aa385ad, type: 3}
   exit: {fileID: 1017729795007926962, guid: 9e375cfac6c66b249a97bdd7bd0688c5, type: 3}
+  jail: {fileID: 7302586801658028805, guid: 0bdb1f79a992fcb468e323679fa70b64, type: 3}
+  lever: {fileID: 7738363688417486910, guid: 54cbd718d72554c40a5cbe3abc252f1e, type: 3}
   scale: 50
   size:
     x: 4

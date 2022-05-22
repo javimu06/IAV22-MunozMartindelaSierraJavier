@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
     public Maze mazePrefab;
     public GameObject Player;
     public GameObject Minotauro;
+    public GameObject jail;
+
+    public GameObject prisonCell;
+
 
     private Maze mazeInstance;
 
@@ -45,7 +49,7 @@ public class GameManager : MonoBehaviour
         mazeInstance = Instantiate(mazePrefab) as Maze;
         mazeInstance.Generate();
 
-        Player.transform.position = new Vector3(-1 * mazePrefab.scale, 0f, 0f);
+        Player.transform.position = new Vector3(-1 * mazePrefab.scale, 10f, 0f);
         Minotauro.transform.position = new Vector3((mazeInstance.size.x - 1) * mazePrefab.scale, 0f, (mazeInstance.size.z - 1) * mazePrefab.scale);
     }
 

@@ -235,38 +235,38 @@ namespace UnityEngine.AI
                 return;
 #endif
             // Modifiers
-            List<NavMeshModifierVolume> modifiers;
-            if (m_CollectObjects == CollectObjects.Children)
-            {
-                modifiers = new List<NavMeshModifierVolume>(GetComponentsInChildren<NavMeshModifierVolume>());
-                modifiers.RemoveAll(x => !x.isActiveAndEnabled);
-            }
-            else
-            {
-                modifiers = NavMeshModifierVolume.activeModifiers;
-            }
+            //List<NavMeshModifierVolume> modifiers;
+            //if (m_CollectObjects == CollectObjects.Children)
+            //{
+            //    modifiers = new List<NavMeshModifierVolume>(GetComponentsInChildren<NavMeshModifierVolume>());
+            //    modifiers.RemoveAll(x => !x.isActiveAndEnabled);
+            //}
+            //else
+            //{
+            //    modifiers = NavMeshModifierVolume.activeModifiers;
+            //}
 
-            foreach (var m in modifiers)
-            {
-                if ((m_LayerMask & (1 << m.gameObject.layer)) == 0)
-                    continue;
-                if (!m.AffectsAgentType(m_AgentTypeID))
-                    continue;
-#if UNITY_EDITOR
-                if (!myStage.Contains(m.gameObject))
-                    continue;
-#endif
-                var mcenter = m.transform.TransformPoint(m.center);
-                var scale = m.transform.lossyScale;
-                var msize = new Vector3(m.size.x * Mathf.Abs(scale.x), m.size.y * Mathf.Abs(scale.y), m.size.z * Mathf.Abs(scale.z));
+//            foreach (var m in modifiers)
+//            {
+//                if ((m_LayerMask & (1 << m.gameObject.layer)) == 0)
+//                    continue;
+//                if (!m.AffectsAgentType(m_AgentTypeID))
+//                    continue;
+//#if UNITY_EDITOR
+//                if (!myStage.Contains(m.gameObject))
+//                    continue;
+//#endif
+//                var mcenter = m.transform.TransformPoint(m.center);
+//                var scale = m.transform.lossyScale;
+//                var msize = new Vector3(m.size.x * Mathf.Abs(scale.x), m.size.y * Mathf.Abs(scale.y), m.size.z * Mathf.Abs(scale.z));
 
-                var src = new NavMeshBuildSource();
-                src.shape = NavMeshBuildSourceShape.ModifierBox;
-                src.transform = Matrix4x4.TRS(mcenter, m.transform.rotation, Vector3.one);
-                src.size = msize;
-                src.area = m.area;
-                sources.Add(src);
-            }
+//                var src = new NavMeshBuildSource();
+//                src.shape = NavMeshBuildSourceShape.ModifierBox;
+//                src.transform = Matrix4x4.TRS(mcenter, m.transform.rotation, Vector3.one);
+//                src.size = msize;
+//                src.area = m.area;
+//                sources.Add(src);
+//            }
         }
 
         List<NavMeshBuildSource> CollectSources()
@@ -274,30 +274,30 @@ namespace UnityEngine.AI
             var sources = new List<NavMeshBuildSource>();
             var markups = new List<NavMeshBuildMarkup>();
 
-            List<NavMeshModifier> modifiers;
-            if (m_CollectObjects == CollectObjects.Children)
-            {
-                modifiers = new List<NavMeshModifier>(GetComponentsInChildren<NavMeshModifier>());
-                modifiers.RemoveAll(x => !x.isActiveAndEnabled);
-            }
-            else
-            {
-                modifiers = NavMeshModifier.activeModifiers;
-            }
+            //List<NavMeshModifier> modifiers;
+            //if (m_CollectObjects == CollectObjects.Children)
+            //{
+            //    modifiers = new List<NavMeshModifier>(GetComponentsInChildren<NavMeshModifier>());
+            //    modifiers.RemoveAll(x => !x.isActiveAndEnabled);
+            //}
+            //else
+            //{
+            //    modifiers = NavMeshModifier.activeModifiers;
+            //}
 
-            foreach (var m in modifiers)
-            {
-                if ((m_LayerMask & (1 << m.gameObject.layer)) == 0)
-                    continue;
-                if (!m.AffectsAgentType(m_AgentTypeID))
-                    continue;
-                var markup = new NavMeshBuildMarkup();
-                markup.root = m.transform;
-                markup.overrideArea = m.overrideArea;
-                markup.area = m.area;
-                markup.ignoreFromBuild = m.ignoreFromBuild;
-                markups.Add(markup);
-            }
+            //foreach (var m in modifiers)
+            //{
+            //    if ((m_LayerMask & (1 << m.gameObject.layer)) == 0)
+            //        continue;
+            //    if (!m.AffectsAgentType(m_AgentTypeID))
+            //        continue;
+            //    var markup = new NavMeshBuildMarkup();
+            //    markup.root = m.transform;
+            //    markup.overrideArea = m.overrideArea;
+            //    markup.area = m.area;
+            //    markup.ignoreFromBuild = m.ignoreFromBuild;
+            //    markups.Add(markup);
+            //}
 
 #if UNITY_EDITOR
             if (!EditorApplication.isPlaying)

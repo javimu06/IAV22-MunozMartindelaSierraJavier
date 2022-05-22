@@ -12,6 +12,9 @@ public class Maze : MonoBehaviour
     public int powerupDensity;
     public GameObject key;
     public GameObject exit;
+    public GameObject jail;
+    public GameObject lever;
+
 
     public int scale;
 
@@ -60,13 +63,10 @@ public class Maze : MonoBehaviour
 
 
         surfaces.Add(room.transform.GetChild(0).gameObject);
+        lever = Instantiate(lever) as GameObject;
+        lever.transform.position = new Vector3(0, 0, (size.z - 1) * scale);
 
-
-        for (int i = 0; i < surfaces.Count; i++)
-        {
-            surfaces[i].GetComponent<NavMeshSurface>().BuildNavMesh();
-        }
-
+        surfaces[0].GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)
@@ -144,9 +144,16 @@ public class Maze : MonoBehaviour
 
         if (newCell.name == "Maze Cell " + (size.x - 1) * scale + ", 0")
         {
+            //Llave
             GameObject keyy = Instantiate(key) as GameObject;
             keyy.transform.position = new Vector3((size.x - 1) * scale, 0, 0);
             keyy.transform.position += new Vector3(0, 10, 0);
+            //Jaula
+            GameObject jaill = Instantiate(jail) as GameObject;
+            jaill.transform.position = new Vector3((size.x - 1) * scale, -30, 0);
+            GameManager.Instance.jail = jaill;
+
+            GameManager.Instance.prisonCell = newCell.transform.GetChild(0).gameObject;
         }
         else
         {
