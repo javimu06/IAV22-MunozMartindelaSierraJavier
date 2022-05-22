@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class BehaviourList : MonoBehaviour
 {
-    public static List<StuffBehaviour> effectList;
+    public List<StuffBehaviour> effectList;
 
+    bool hasKey;
 
     private void Start()
     {
         effectList = new List<StuffBehaviour>();
+        hasKey = false;
     }
     public void addElement(StuffBehaviour behav)
     {
+        if (behav.effect == "key")
+            hasKey = true;
+
         effectList.Add(behav);
     }
+
+    public bool keyObtained() { return hasKey; }
 
     // Update is called once per frame
     void Update()

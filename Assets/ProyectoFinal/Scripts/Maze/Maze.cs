@@ -10,6 +10,8 @@ public class Maze : MonoBehaviour
     public MazeWall wallPrefab;
     public GameObject powerups;
     public int powerupDensity;
+    public GameObject key;
+    public GameObject exit;
 
     public int scale;
 
@@ -53,6 +55,9 @@ public class Maze : MonoBehaviour
         CreateWall(room, null, MazeDirection.West);
         CreateWall(room, null, MazeDirection.North);
         CreateWall(room, null, MazeDirection.South);
+        GameObject exitDoor = Instantiate(exit) as GameObject;
+        exitDoor.transform.position = new Vector3(-1 * scale, 0, 0);
+
 
         surfaces.Add(room.transform.GetChild(0).gameObject);
 
@@ -137,16 +142,24 @@ public class Maze : MonoBehaviour
         if (newCell.name == "Maze Cell 0, 0")
             firstCell = newCell;
 
-        //Generar Powerup
-        int poner = Random.Range(0, 1 / powerupDensity);
-        if (poner == 0)
+        if (newCell.name == "Maze Cell " + (size.x - 1) * scale + ", 0")
         {
-            int power = Random.Range(0, 4);
-            GameObject powerup = Instantiate(powerups.transform.GetChild(power).gameObject) as GameObject;
-            powerup.transform.position = newCell.transform.position;
-            powerup.transform.position += new Vector3(0, 10, 0);
+            GameObject keyy = Instantiate(key) as GameObject;
+            keyy.transform.position = new Vector3((size.x - 1) * scale, 0, 0);
+            keyy.transform.position += new Vector3(0, 10, 0);
         }
-
+        else
+        {
+            //Generar Powerup
+            int poner = Random.Range(0, powerupDensity);
+            if (poner == 0)
+            {
+                int power = Random.Range(0, 4);
+                GameObject powerup = Instantiate(powerups.transform.GetChild(power).gameObject) as GameObject;
+                powerup.transform.position = newCell.transform.position;
+                powerup.transform.position += new Vector3(0, 10, 0);
+            }
+        }
 
         return newCell;
     }

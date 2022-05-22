@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebec4a770891dc498f5c74a64dffa65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime_: 10
+  initialTime_: 1
   Repeat: 0
 --- !u!33 &6419498922315088897
 MeshFilter:
@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebec4a770891dc498f5c74a64dffa65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime_: 10
+  initialTime_: 1
   Repeat: 0
 --- !u!1 &6419498923011309195
 GameObject:
@@ -330,7 +330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebec4a770891dc498f5c74a64dffa65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime_: 10
+  initialTime_: 1
   Repeat: 0
 --- !u!33 &6419498923011309193
 MeshFilter:
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bebec4a770891dc498f5c74a64dffa65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialTime_: 10
+  initialTime_: 1
   Repeat: 0
 --- !u!33 &6419498924080682364
 MeshFilter:

@@ -10049,6 +10049,16 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 1782725336}
+    - target: {fileID: 2174625807257592082, guid: 196b6f8e6694b3646b22452c058989b8,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.5776021
+      objectReference: {fileID: 0}
+    - target: {fileID: 2174625807257592082, guid: 196b6f8e6694b3646b22452c058989b8,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.2125949
+      objectReference: {fileID: 0}
     - target: {fileID: 2174625807257592085, guid: 196b6f8e6694b3646b22452c058989b8,
         type: 3}
       propertyPath: m_RootOrder

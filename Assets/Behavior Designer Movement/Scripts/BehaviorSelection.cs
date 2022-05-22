@@ -26,8 +26,8 @@ public class BehaviorSelection : MonoBehaviour
     private Animation markerAnimation;
 
     private enum BehaviorSelectionType { MoveTowards, RotateTowards, Seek, Flee, Pursue, Evade, Follow, Patrol, Cover, Wander, Search, WithinDistance, CanSeeObject, CanHearObject, Flock, LeaderFollow, Queue, Last }
-    private BehaviorSelectionType selectionType = BehaviorSelectionType.MoveTowards;
-    private BehaviorSelectionType prevSelectionType = BehaviorSelectionType.MoveTowards;
+    private BehaviorSelectionType selectionType = BehaviorSelectionType.Seek;
+    private BehaviorSelectionType prevSelectionType = BehaviorSelectionType.Seek;
 
     public void Start()
     {

@@ -43,10 +43,10 @@ public class GameManager : MonoBehaviour
     private void BeginGame()
     {
         mazeInstance = Instantiate(mazePrefab) as Maze;
-        mazeInstance.Generate(); 
+        mazeInstance.Generate();
 
         Player.transform.position = new Vector3(-1 * mazePrefab.scale, 0f, 0f);
-        Minotauro.transform.position = new Vector3((mazeInstance.size.x-1) * mazePrefab.scale, 0f, (mazeInstance.size.z - 1) * mazePrefab.scale);
+        Minotauro.transform.position = new Vector3((mazeInstance.size.x - 1) * mazePrefab.scale, 0f, (mazeInstance.size.z - 1) * mazePrefab.scale);
     }
 
     private void RestartGame()
@@ -54,5 +54,11 @@ public class GameManager : MonoBehaviour
         StopAllCoroutines();
         Destroy(mazeInstance.gameObject);
         BeginGame();
+    }
+
+    public void endGame()
+    {
+        Debug.Log("acuetate\n");
+        Application.Quit();
     }
 }

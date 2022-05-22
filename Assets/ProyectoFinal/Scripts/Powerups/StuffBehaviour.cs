@@ -23,7 +23,7 @@ public class StuffBehaviour : MonoBehaviour
     {
         timer = GetComponent<Timer>();
 
-        if (effect == "speedUp")
+        if (effect == "speedUp" || effect == "speedDown")
         {
             playerSpeed = GameManager.Instance.Player.GetComponent<NavMeshAgent>().speed;
             highSpeed = playerSpeed + playerSpeed * exponentSpeed;
@@ -52,6 +52,7 @@ public class StuffBehaviour : MonoBehaviour
             activateEffect();
             //Añadir a la lista de efectos del player
             GameManager.Instance.Player.GetComponent<BehaviourList>().addElement(this);
+            gameObject.SetActive(false);
         }
     }
 
