@@ -65,7 +65,7 @@ public class Maze : MonoBehaviour
         surfaces.Add(room.transform.GetChild(0).gameObject);
         lever = Instantiate(lever) as GameObject;
         lever.transform.localScale = lever.transform.localScale * scale;
-        lever.transform.position = new Vector3(0, 5, (size.z - 1) * scale);
+        lever.transform.position = new Vector3(0, 0.1f * scale, (size.z - 1) * scale);
 
         surfaces[0].GetComponent<NavMeshSurface>().BuildNavMesh();
     }
@@ -149,10 +149,10 @@ public class Maze : MonoBehaviour
             key = Instantiate(key) as GameObject;
             key.transform.localScale = key.transform.localScale * scale;
             key.transform.position = new Vector3((size.x - 1) * scale, 0, 0);
-            key.transform.position += new Vector3(0, 10, 0);
+            key.transform.position += new Vector3(0, 0.2f * scale, 0);
             //Jaula
             jail = Instantiate(jail) as GameObject;
-            jail.transform.position = new Vector3((size.x - 1) * scale, -30, 0);
+            jail.transform.position = new Vector3((size.x - 1) * scale, -0.6f * scale, 0);
             jail.transform.localScale = jail.transform.localScale * scale;
             GameManager.Instance.jail = jail;
 

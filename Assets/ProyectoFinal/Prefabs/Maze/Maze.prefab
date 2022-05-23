@@ -56,7 +56,7 @@ MonoBehaviour:
   exit: {fileID: 1017729795007926962, guid: 9e375cfac6c66b249a97bdd7bd0688c5, type: 3}
   jail: {fileID: 7302586801658028805, guid: 0bdb1f79a992fcb468e323679fa70b64, type: 3}
   lever: {fileID: 7738363688417486910, guid: 54cbd718d72554c40a5cbe3abc252f1e, type: 3}
-  scale: 50
+  scale: 20
   size:
     x: 4
     z: 4

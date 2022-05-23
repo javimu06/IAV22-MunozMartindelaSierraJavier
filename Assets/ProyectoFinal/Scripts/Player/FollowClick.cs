@@ -12,10 +12,10 @@ public class FollowClick : MonoBehaviour
     public Transform objetivo;
 
     public Vector3 offset;
-
+    private float camSpeed = 10;
     // Update is called once per frame
     void Update()
     {
-        transform.position = objetivo.position + offset;
+        transform.position = Vector3.Lerp(transform.position, objetivo.position + offset, 10 * Time.deltaTime);
     }
 }
