@@ -167,7 +167,7 @@ public class Maze : MonoBehaviour
                 int power = Random.Range(0, 4);
                 GameObject powerup = Instantiate(powerups.transform.GetChild(power).gameObject) as GameObject;
                 powerup.transform.position = newCell.transform.position;
-                powerup.transform.position += new Vector3(0, 10, 0);
+                powerup.transform.position += new Vector3(0, 3, 0);
             }
         }
 

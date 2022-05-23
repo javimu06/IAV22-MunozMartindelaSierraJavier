@@ -24,7 +24,6 @@ public class ControlPalanca : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>()) return;
-        if (other.gameObject.name == "Ghost" && caido) return;
         caido = !caido;
         Interact();
     }
