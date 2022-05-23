@@ -90,5 +90,19 @@ public class Player : MonoBehaviour
             //anim.SetBool("Attack", false);
         }
         //anim.SetFloat("Speed", GetComponent<NavMeshAgent>().velocity.magnitude);
+
+        if (Input.GetKeyDown("t"))
+        {
+            if (GetComponent<NavMeshAgent>().enabled)
+            {
+                if (GameManager.Instance.estadoJaula)
+                    GetComponent<NavMeshAgent>().SetDestination(GameManager.Instance.mazeInstance.key.transform.position);
+                else if (!GetComponent<BehaviourList>().keyObtained())
+                    GetComponent<NavMeshAgent>().SetDestination(GameManager.Instance.mazeInstance.lever.transform.position);
+                else
+                    GetComponent<NavMeshAgent>().SetDestination(GameManager.Instance.exit.transform.position);
+
+            }
+        }
     }
 }

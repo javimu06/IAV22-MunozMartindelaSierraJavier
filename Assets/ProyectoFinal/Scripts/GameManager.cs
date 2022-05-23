@@ -12,7 +12,9 @@ public class GameManager : MonoBehaviour
     public GameObject prisonCell;
 
 
-    private Maze mazeInstance;
+    public Maze mazeInstance;
+    public bool estadoJaula;
+    public GameObject exit;
 
     public static GameManager Instance { get; private set; }
     private void Awake()

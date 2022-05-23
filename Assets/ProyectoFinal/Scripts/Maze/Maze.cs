@@ -60,11 +60,12 @@ public class Maze : MonoBehaviour
         CreateWall(room, null, MazeDirection.South);
         GameObject exitDoor = Instantiate(exit) as GameObject;
         exitDoor.transform.position = new Vector3(-1 * scale, 0, 0);
-
+        GameManager.Instance.exit = exitDoor;
 
         surfaces.Add(room.transform.GetChild(0).gameObject);
         lever = Instantiate(lever) as GameObject;
-        lever.transform.position = new Vector3(0, 0, (size.z - 1) * scale);
+        lever.transform.localScale = lever.transform.localScale * scale;
+        lever.transform.position = new Vector3(0, 5, (size.z - 1) * scale);
 
         surfaces[0].GetComponent<NavMeshSurface>().BuildNavMesh();
     }
@@ -145,13 +146,15 @@ public class Maze : MonoBehaviour
         if (newCell.name == "Maze Cell " + (size.x - 1) * scale + ", 0")
         {
             //Llave
-            GameObject keyy = Instantiate(key) as GameObject;
-            keyy.transform.position = new Vector3((size.x - 1) * scale, 0, 0);
-            keyy.transform.position += new Vector3(0, 10, 0);
+            key = Instantiate(key) as GameObject;
+            key.transform.localScale = key.transform.localScale * scale;
+            key.transform.position = new Vector3((size.x - 1) * scale, 0, 0);
+            key.transform.position += new Vector3(0, 10, 0);
             //Jaula
-            GameObject jaill = Instantiate(jail) as GameObject;
-            jaill.transform.position = new Vector3((size.x - 1) * scale, -30, 0);
-            GameManager.Instance.jail = jaill;
+            jail = Instantiate(jail) as GameObject;
+            jail.transform.position = new Vector3((size.x - 1) * scale, -30, 0);
+            jail.transform.localScale = jail.transform.localScale * scale;
+            GameManager.Instance.jail = jail;
 
             GameManager.Instance.prisonCell = newCell.transform.GetChild(0).gameObject;
         }

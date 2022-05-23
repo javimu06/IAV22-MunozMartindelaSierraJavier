@@ -32,14 +32,14 @@ public class ControlPalanca : MonoBehaviour
     public void Interact()
     {
         //publico.GetComponent<Collider>().enabled = !caido && !otroControl.caido;
-
+        GameManager.Instance.estadoJaula = !GameManager.Instance.estadoJaula;
 
 
         if (!caido)
         {
             GameManager.Instance.jail.SetActive(true);
-            NavMeshSurface nm = GameObject.FindObjectOfType<NavMeshSurface>();
-            nm.UpdateNavMesh(nm.navMeshData);
+            //NavMeshSurface nm = GameManager.Instance.prisonCell.GetComponent<NavMeshSurface>();
+            //nm.UpdateNavMesh(nm.navMeshData);
             
             //jail.GetComponent<Rigidbody>().useGravity = true;
             //for (int i = 0; i < publico.transform.childCount; ++i)
@@ -53,8 +53,8 @@ public class ControlPalanca : MonoBehaviour
         else
         {
             GameManager.Instance.jail.SetActive(false);
-            NavMeshSurface nm = GameObject.FindObjectOfType<NavMeshSurface>();
-            nm.UpdateNavMesh(nm.navMeshData);
+            //NavMeshSurface nm = GameManager.Instance.prisonCell.GetComponent<NavMeshSurface>();
+            //nm.UpdateNavMesh(nm.navMeshData);
 
             //jail.GetComponent<Rigidbody>().useGravity = false;
             //for (int i = 0; i < publico.transform.childCount; ++i)

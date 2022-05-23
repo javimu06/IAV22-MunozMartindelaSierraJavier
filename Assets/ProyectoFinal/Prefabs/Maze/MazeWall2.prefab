@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 139965521550825408}
   - component: {fileID: 7302211659567084820}
   - component: {fileID: 935524733995101732}
-  - component: {fileID: 8109427944080841609}
   m_Layer: 0
   m_Name: Wall_27
   m_TagString: Untagged
@@ -27,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1700353194051312345}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.003, y: -0.617, z: 0.403}
-  m_LocalScale: {x: 0.24905622, y: 0.24905622, z: 1.2172872}
+  m_LocalPosition: {x: 0, y: -0.617, z: 0.458}
+  m_LocalScale: {x: 0.24905622, y: 0.24905622, z: 0.76740223}
   m_Children: []
   m_Father: {fileID: 1399751454508958879}
   m_RootOrder: 0
@@ -82,19 +81,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &8109427944080841609
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1700353194051312345}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 4, z: 0.19397183}
-  m_Center: {x: 0, y: 1.9999999, z: 0.09698508}
 --- !u!1 &7459101732921983230
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +92,6 @@ GameObject:
   - component: {fileID: 8209378634275163623}
   - component: {fileID: 1534172118596972339}
   - component: {fileID: 9000291508148990979}
-  - component: {fileID: 119062639176940893}
   m_Layer: 0
   m_Name: Wall_27 (1)
   m_TagString: Untagged
@@ -122,8 +107,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459101732921983230}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0.0000002533197}
-  m_LocalPosition: {x: 0.003, y: -0.617, z: 0.455}
-  m_LocalScale: {x: 0.24905622, y: 0.24905622, z: 1.217287}
+  m_LocalPosition: {x: 0.003, y: -0.617, z: 0.483}
+  m_LocalScale: {x: 0.24905622, y: 0.24905622, z: 0.68401784}
   m_Children: []
   m_Father: {fileID: 1399751454508958879}
   m_RootOrder: 1
@@ -177,19 +162,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &119062639176940893
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7459101732921983230}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4, y: 4, z: 0.19397183}
-  m_Center: {x: 0, y: 1.9999999, z: 0.09698508}
 --- !u!1 &8299545837702109145
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399751454508958879}
   - component: {fileID: 5715736254614298071}
+  - component: {fileID: 7186914735539251621}
   m_Layer: 0
   m_Name: MazeWall2
   m_TagString: Untagged
@@ -238,3 +211,16 @@ MonoBehaviour:
   cell: {fileID: 0}
   otherCell: {fileID: 0}
   direction: 0
+--- !u!65 &7186914735539251621
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8299545837702109145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.2755024}
+  m_Center: {x: 0, y: 0, z: 0.019210145}
