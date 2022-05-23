@@ -24,6 +24,8 @@ public class Maze : MonoBehaviour
     private MazeCell[,] cells;
     private MazeCell firstCell;
 
+    private GameObject powerupsParent;
+
     public List<GameObject> surfaces;
 
     public MazeCell GetCell(IntVector2 coordinates)
@@ -33,7 +35,8 @@ public class Maze : MonoBehaviour
 
     public void Generate()
     {
-
+        powerupsParent = new GameObject();
+        powerupsParent.name = "PowerupsParent";
         WaitForSeconds delay = new WaitForSeconds(generationStepDelay);
         cells = new MazeCell[size.x, size.z];
         List<MazeCell> activeCells = new List<MazeCell>();
@@ -158,7 +161,7 @@ public class Maze : MonoBehaviour
 
             GameManager.Instance.prisonCell = newCell.transform.GetChild(0).gameObject;
         }
-        else if(newCell.name != "Maze Cell " + (size.x - 1) * scale + ", " + (size.z - 1) * scale && newCell.name != "Maze Cell " + 0 * scale + ", " + (size.z - 1) * scale)
+        else if (newCell.name != "Maze Cell " + (size.x - 1) * scale + ", " + (size.z - 1) * scale && newCell.name != "Maze Cell " + 0 * scale + ", " + (size.z - 1) * scale)
         {
             //Generar Powerup
             int poner = Random.Range(0, powerupDensity);
@@ -168,6 +171,7 @@ public class Maze : MonoBehaviour
                 GameObject powerup = Instantiate(powerups.transform.GetChild(power).gameObject) as GameObject;
                 powerup.transform.position = newCell.transform.position;
                 powerup.transform.position += new Vector3(0, 3, 0);
+                powerup.transform.parent = powerupsParent.transform;
             }
         }
 
