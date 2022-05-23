@@ -51,7 +51,7 @@ MonoBehaviour:
     type: 3}
   powerups: {fileID: 6419498923162188281, guid: 04d40d30acd098248aef3484f53e9500,
     type: 3}
-  powerupDensity: 10
+  powerupDensity: 1
   key: {fileID: 4437556933618297880, guid: 78b52fba32456454aa18904a7aa385ad, type: 3}
   exit: {fileID: 1017729795007926962, guid: 9e375cfac6c66b249a97bdd7bd0688c5, type: 3}
   jail: {fileID: 7302586801658028805, guid: 0bdb1f79a992fcb468e323679fa70b64, type: 3}

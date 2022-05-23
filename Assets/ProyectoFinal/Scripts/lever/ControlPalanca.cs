@@ -24,6 +24,7 @@ public class ControlPalanca : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<Player>()) return;
+        if (other.gameObject.name == "bot" && !caido) return;
         caido = !caido;
         Interact();
     }
@@ -39,7 +40,7 @@ public class ControlPalanca : MonoBehaviour
             GameManager.Instance.jail.SetActive(true);
             //NavMeshSurface nm = GameManager.Instance.prisonCell.GetComponent<NavMeshSurface>();
             //nm.UpdateNavMesh(nm.navMeshData);
-            
+
             //jail.GetComponent<Rigidbody>().useGravity = true;
             //for (int i = 0; i < publico.transform.childCount; ++i)
             //{

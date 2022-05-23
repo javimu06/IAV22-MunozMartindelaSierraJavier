@@ -21,7 +21,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
 
-    public Camera camera;
+    public GameObject camera;
 
     void Start()
     {

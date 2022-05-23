@@ -158,7 +158,7 @@ public class Maze : MonoBehaviour
 
             GameManager.Instance.prisonCell = newCell.transform.GetChild(0).gameObject;
         }
-        else
+        else if(newCell.name != "Maze Cell " + (size.x - 1) * scale + ", " + (size.z - 1) * scale && newCell.name != "Maze Cell " + 0 * scale + ", " + (size.z - 1) * scale)
         {
             //Generar Powerup
             int poner = Random.Range(0, powerupDensity);
