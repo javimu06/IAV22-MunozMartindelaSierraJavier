@@ -26,7 +26,7 @@ public class Maze : MonoBehaviour
 
     private GameObject powerupsParent;
 
-    public List<GameObject> surfaces;
+    public GameObject surfaces;
 
     public MazeCell GetCell(IntVector2 coordinates)
     {
@@ -65,12 +65,12 @@ public class Maze : MonoBehaviour
         exitDoor.transform.position = new Vector3(-1 * scale, 0, 0);
         GameManager.Instance.exit = exitDoor;
 
-        surfaces.Add(room.transform.GetChild(0).gameObject);
+        surfaces = room.transform.GetChild(0).gameObject;
         lever = Instantiate(lever) as GameObject;
         lever.transform.localScale = lever.transform.localScale * scale;
         lever.transform.position = new Vector3(0, 0.1f * scale, (size.z - 1) * scale);
 
-        surfaces[0].GetComponent<NavMeshSurface>().BuildNavMesh();
+        surfaces.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     private void DoFirstGenerationStep(List<MazeCell> activeCells)
@@ -141,7 +141,7 @@ public class Maze : MonoBehaviour
             new Vector3(coordinates.x * scale, 0f, coordinates.z * scale);
         newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
 
-        surfaces.Add(newCell.transform.GetChild(0).gameObject);
+        //surfaces.Add(newCell.transform.GetChild(0).gameObject);
 
         if (newCell.name == "Maze Cell 0, 0")
             firstCell = newCell;
@@ -170,7 +170,7 @@ public class Maze : MonoBehaviour
                 int power = Random.Range(0, 4);
                 GameObject powerup = Instantiate(powerups.transform.GetChild(power).gameObject) as GameObject;
                 powerup.transform.position = newCell.transform.position;
-                powerup.transform.position += new Vector3(0, 3, 0);
+                powerup.transform.position += new Vector3(0, 6, 0);
                 powerup.transform.parent = powerupsParent.transform;
             }
         }
@@ -188,7 +188,7 @@ public class Maze : MonoBehaviour
             new Vector3(coordinates.x * scale, 0f, coordinates.z * scale);
         newCell.transform.localScale = new Vector3(scale * newCell.transform.localScale.x, scale * newCell.transform.localScale.y, scale * newCell.transform.localScale.z);
 
-        surfaces.Add(newCell.transform.GetChild(0).gameObject);
+        //surfaces.Add(newCell.transform.GetChild(0).gameObject);
 
         return newCell;
     }

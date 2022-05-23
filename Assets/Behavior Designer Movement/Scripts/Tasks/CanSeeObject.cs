@@ -53,19 +53,28 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
         // Returns success if an object was found otherwise failure
         public override TaskStatus OnUpdate()
         {
+            targetObject.Value = null;
+
             // The collider layers on the agent can be set to ignore raycast to prevent them from interferring with the raycast checks.
-            if (disableAgentColliderLayer.Value) {
-                if (agentColliderGameObjects == null) {
-                    if (usePhysics2D) {
+            if (disableAgentColliderLayer.Value)
+            {
+                if (agentColliderGameObjects == null)
+                {
+                    if (usePhysics2D)
+                    {
                         var colliders = gameObject.GetComponentsInChildren<Collider2D>();
                         agentColliderGameObjects = new GameObject[colliders.Length];
-                        for (int i = 0; i < agentColliderGameObjects.Length; ++i) {
+                        for (int i = 0; i < agentColliderGameObjects.Length; ++i)
+                        {
                             agentColliderGameObjects[i] = colliders[i].gameObject;
                         }
-                    } else {
+                    }
+                    else
+                    {
                         var colliders = gameObject.GetComponentsInChildren<Collider>();
                         agentColliderGameObjects = new GameObject[colliders.Length];
-                        for (int i = 0; i < agentColliderGameObjects.Length; ++i) {
+                        for (int i = 0; i < agentColliderGameObjects.Length; ++i)
+                        {
                             agentColliderGameObjects[i] = colliders[i].gameObject;
                         }
                     }
@@ -73,101 +82,136 @@ namespace BehaviorDesigner.Runtime.Tasks.Movement
                 }
 
                 // Change the layer. Remember the previous layer so it can be reset after the check has completed.
-                for (int i = 0; i < agentColliderGameObjects.Length; ++i) {
+                for (int i = 0; i < agentColliderGameObjects.Length; ++i)
+                {
                     originalColliderLayer[i] = agentColliderGameObjects[i].layer;
                     agentColliderGameObjects[i].layer = ignoreRaycastLayer;
                 }
             }
 
-            if (usePhysics2D) {
-                if (targetObjects.Value != null && targetObjects.Value.Count > 0) { // If there are objects in the group list then search for the object within that list
+            if (usePhysics2D)
+            {
+                if (targetObjects.Value != null && targetObjects.Value.Count > 0)
+                { // If there are objects in the group list then search for the object within that list
                     GameObject objectFound = null;
                     float minAngle = Mathf.Infinity;
-                    for (int i = 0; i < targetObjects.Value.Count; ++i) {
+                    for (int i = 0; i < targetObjects.Value.Count; ++i)
+                    {
                         float angle;
                         GameObject obj;
-                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targetObjects.Value[i], targetOffset.Value, true, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null) {
+                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targetObjects.Value[i], targetOffset.Value, true, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null)
+                        {
                             // This object is within sight. Set it to the objectFound GameObject if the angle is less than any of the other objects
-                            if (angle < minAngle) {
+                            if (angle < minAngle)
+                            {
                                 minAngle = angle;
                                 objectFound = obj;
                             }
                         }
                     }
                     returnedObject.Value = objectFound;
-                } else if (targetObject.Value != null) { // If the target is not null then determine if that object is within sight
+                }
+                else if (targetObject.Value != null)
+                { // If the target is not null then determine if that object is within sight
                     returnedObject.Value = MovementUtility.WithinSight2D(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targetObject.Value, targetOffset.Value, angleOffset2D.Value, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value);
-                } else if (!string.IsNullOrEmpty(targetTag.Value)) { // If the target tag is not null then determine if there are any objects within sight based on the tag
+                }
+                else if (!string.IsNullOrEmpty(targetTag.Value))
+                { // If the target tag is not null then determine if there are any objects within sight based on the tag
                     GameObject objectFound = null;
                     float minAngle = Mathf.Infinity;
                     var targets = GameObject.FindGameObjectsWithTag(targetTag.Value);
-                    for (int i = 0; i < targets.Length; ++i) {
+                    for (int i = 0; i < targets.Length; ++i)
+                    {
                         float angle;
                         GameObject obj;
-                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targets[i], targetOffset.Value, true, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null) {
+                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targets[i], targetOffset.Value, true, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null)
+                        {
                             // This object is within sight. Set it to the objectFound GameObject if the angle is less than any of the other objects
-                            if (angle < minAngle) {
+                            if (angle < minAngle)
+                            {
                                 minAngle = angle;
                                 objectFound = obj;
                             }
                         }
                     }
                     returnedObject.Value = objectFound;
-                } else { // If the target object is null and there is no tag then determine if there are any objects within sight based on the layer mask
-                    if (overlap2DColliders == null) {
+                }
+                else
+                { // If the target object is null and there is no tag then determine if there are any objects within sight based on the layer mask
+                    if (overlap2DColliders == null)
+                    {
                         overlap2DColliders = new Collider2D[maxCollisionCount];
                     }
                     returnedObject.Value = MovementUtility.WithinSight2D(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, overlap2DColliders, objectLayerMask, targetOffset.Value, angleOffset2D.Value, ignoreLayerMask, drawDebugRay.Value);
                 }
-            } else {
-                if (targetObjects.Value != null && targetObjects.Value.Count > 0) { // If there are objects in the group list then search for the object within that list
+            }
+            else
+            {
+                if (targetObjects.Value != null && targetObjects.Value.Count > 0)
+                { // If there are objects in the group list then search for the object within that list
                     GameObject objectFound = null;
                     float minAngle = Mathf.Infinity;
-                    for (int i = 0; i < targetObjects.Value.Count; ++i) {
+                    for (int i = 0; i < targetObjects.Value.Count; ++i)
+                    {
                         float angle;
                         GameObject obj;
-                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targetObjects.Value[i], targetOffset.Value, false, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null) {
+                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targetObjects.Value[i], targetOffset.Value, false, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null)
+                        {
                             // This object is within sight. Set it to the objectFound GameObject if the angle is less than any of the other objects
-                            if (angle < minAngle) {
+                            if (angle < minAngle)
+                            {
                                 minAngle = angle;
                                 objectFound = obj;
                             }
                         }
                     }
                     returnedObject.Value = objectFound;
-                } else if (targetObject.Value != null) { // If the target is not null then determine if that object is within sight
+                }
+                else if (targetObject.Value != null)
+                { // If the target is not null then determine if that object is within sight
                     returnedObject.Value = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targetObject.Value, targetOffset.Value, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value);
-                } else if (!string.IsNullOrEmpty(targetTag.Value)) { // If the target tag is not null then determine if there are any objects within sight based on the tag
+                }
+                else if (!string.IsNullOrEmpty(targetTag.Value))
+                { // If the target tag is not null then determine if there are any objects within sight based on the tag
                     GameObject objectFound = null;
                     float minAngle = Mathf.Infinity;
                     var targets = GameObject.FindGameObjectsWithTag(targetTag.Value);
-                    for (int i = 0; i < targets.Length; ++i) {
+                    for (int i = 0; i < targets.Length; ++i)
+                    {
                         float angle;
                         GameObject obj;
-                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targets[i], targetOffset.Value, false, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null) {
+                        if ((obj = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, targets[i], targetOffset.Value, false, angleOffset2D.Value, out angle, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value)) != null)
+                        {
                             // This object is within sight. Set it to the objectFound GameObject if the angle is less than any of the other objects
-                            if (angle < minAngle) {
+                            if (angle < minAngle)
+                            {
                                 minAngle = angle;
                                 objectFound = obj;
                             }
                         }
                     }
                     returnedObject.Value = objectFound;
-                } else { // If the target object is null and there is no tag then determine if there are any objects within sight based on the layer mask
-                    if (overlapColliders == null) {
+                }
+                else
+                { // If the target object is null and there is no tag then determine if there are any objects within sight based on the layer mask
+                    if (overlapColliders == null)
+                    {
                         overlapColliders = new Collider[maxCollisionCount];
                     }
                     returnedObject.Value = MovementUtility.WithinSight(transform, offset.Value, fieldOfViewAngle.Value, viewDistance.Value, overlapColliders, objectLayerMask, targetOffset.Value, ignoreLayerMask, useTargetBone.Value, targetBone, drawDebugRay.Value);
                 }
             }
 
-            if (disableAgentColliderLayer.Value) {
-                for (int i = 0; i < agentColliderGameObjects.Length; ++i) {
+            if (disableAgentColliderLayer.Value)
+            {
+                for (int i = 0; i < agentColliderGameObjects.Length; ++i)
+                {
                     agentColliderGameObjects[i].layer = originalColliderLayer[i];
                 }
             }
 
-            if (returnedObject.Value != null) {
+            if (returnedObject.Value != null)
+            {
                 // Return success if an object was found
                 return TaskStatus.Success;
             }

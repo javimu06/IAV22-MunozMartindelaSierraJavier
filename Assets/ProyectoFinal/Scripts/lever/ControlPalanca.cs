@@ -38,29 +38,12 @@ public class ControlPalanca : MonoBehaviour
         if (!caido)
         {
             GameManager.Instance.jail.SetActive(true);
-            //NavMeshSurface nm = GameManager.Instance.prisonCell.GetComponent<NavMeshSurface>();
-            //nm.UpdateNavMesh(nm.navMeshData);
-
-            //jail.GetComponent<Rigidbody>().useGravity = true;
-            //for (int i = 0; i < publico.transform.childCount; ++i)
-            //{
-            //    //publico.transform.GetChild(i).GetComponent<Publico>().apagaLuz(lado_);
-
-            //}
-            //float step = speed * Time.deltaTime;
-            //transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+            GameManager.Instance.mazeInstance.surfaces.GetComponent<NavMeshSurface>().BuildNavMesh();
         }
         else
         {
             GameManager.Instance.jail.SetActive(false);
-            //NavMeshSurface nm = GameManager.Instance.prisonCell.GetComponent<NavMeshSurface>();
-            //nm.UpdateNavMesh(nm.navMeshData);
-
-            //jail.GetComponent<Rigidbody>().useGravity = false;
-            //for (int i = 0; i < publico.transform.childCount; ++i)
-            //{
-            //    //publico.transform.GetChild(i).GetComponent<Publico>().enciendeLuz(lado_);
-            //}
+            GameManager.Instance.mazeInstance.surfaces.GetComponent<NavMeshSurface>().BuildNavMesh();
         }
     }
 }

@@ -17,12 +17,14 @@ public class CloseDoorAction : NavMeshMovement
     public override TaskStatus OnUpdate()
     {
         puerta = GameManager.Instance.mazeInstance.lever;
-        SetDestination(puerta.transform.position);
+        if (HasArrived())
+            SetDestination(puerta.transform.position);
         if (Vector3.SqrMagnitude(transform.position - puerta.transform.position) < 8f)
         {
             SetDestination(transform.position);
             return TaskStatus.Success;
         }
+        if (!GameManager.Instance.estadoJaula) return TaskStatus.Success;
         return TaskStatus.Running;
     }
 }
