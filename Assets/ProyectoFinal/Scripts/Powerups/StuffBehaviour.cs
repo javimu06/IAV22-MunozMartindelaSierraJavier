@@ -52,7 +52,7 @@ public class StuffBehaviour : MonoBehaviour
             activateEffect();
             //Añadir a la lista de efectos del player
             GameManager.Instance.Player.GetComponent<BehaviourList>().addElement(this);
-            gameObject.SetActive(false);
+            gameObject.transform.position -= new Vector3(0, 30, 0);
         }
     }
 
