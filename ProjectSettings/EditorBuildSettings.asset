@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/RTS/Scene/RTSScenario 2.unity
     guid: ff64c446f5c3ff04d9103df9ece8f0ff
+  - enabled: 1
+    path: Assets/ProyectoFinal/Escenas/Maze - copia.unity
+    guid: a8d97bdc24322c048888bf0c708b38d2
   m_configObjects: {}

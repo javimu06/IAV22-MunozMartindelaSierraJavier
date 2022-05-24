@@ -24,5 +24,10 @@ public class CameraManager : MonoBehaviour
             main.enabled = false;
             general.enabled = true;
         }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Application.Quit();
+        }
     }
 }
